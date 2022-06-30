@@ -7,14 +7,14 @@ import 'package:ifes_solar/validators/valid_string.dart';
 import 'package:ifes_solar/widgets/custom_form_field_widget.dart';
 import 'package:ifes_solar/widgets/rounded_button_widget.dart';
 
-class AuthPage extends StatefulWidget {
-  const AuthPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<AuthPage> createState() => _AuthPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _AuthPageState extends State<AuthPage> {
+class _LoginPageState extends State<LoginPage> {
   final AuthController authController = Get.find<AuthController>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
@@ -104,7 +104,7 @@ class _AuthPageState extends State<AuthPage> {
                           }
                         },
                         width: MediaQuery.of(context).size.width,
-                        isLoading: authController.isLoginLoading,
+                        isLoading: authController.isAuthLoading,
                       ),
                     )
                   ],

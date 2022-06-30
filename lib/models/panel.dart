@@ -22,17 +22,17 @@ class Panel {
       this.ptc = 0,
       this.datasheet = ""});
 
-  factory Panel.fromJson(Map<String, dynamic> json) {
+  factory Panel.createPanel(Map<String, dynamic> map) {
     return Panel(
-      id: json['id'] ?? 0,
-      image: json['image'] ?? "",
-      producer: json['producer'] ?? "",
-      name: json['name'] ?? "",
-      power: json['power'] ?? 0,
-      temperature: json['temperature'] ?? 0,
-      area: json['area'] ?? 0,
-      efficiency: json['efficiency'] ?? 0,
-      datasheet: json['datasheet'] ?? "",
+      id: map['id'] ?? 0,
+      image: map['image'] ?? "",
+      producer: map['producer'] ?? "",
+      name: map['name'] ?? "",
+      power: map['power'] ?? 0,
+      temperature: map['temperature'] ?? 0,
+      area: map['area'] ?? 0,
+      efficiency: map['efficiency'] ?? 0,
+      datasheet: map['datasheet'] ?? "",
     );
   }
 }

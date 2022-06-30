@@ -30,7 +30,7 @@ class UserController {
       }
       if (response.body != null) {
         var body = jsonDecode(response.body);
-        final User userInstance = User.fromJson(body);
+        final User userInstance = User.createUser(body);
         _user.value = userInstance;
       }
     } finally {

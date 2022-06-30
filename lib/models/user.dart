@@ -11,12 +11,12 @@ class User {
     this.phone = "",
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
+  factory User.createUser(Map<String, dynamic> map) {
     return User(
-      id: json['id'] ?? 0,
-      name: json['name'] ?? "",
-      email: json['email'] ?? "",
-      phone: json['phone'] ?? "",
+      id: map['id'] ?? 0,
+      name: map['name'] ?? "",
+      email: map['email'] ?? "",
+      phone: map['phone'] ?? "",
     );
   }
 }
