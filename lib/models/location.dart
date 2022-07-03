@@ -1,16 +1,16 @@
 class Location {
-  String latitude;
-  String longitude;
+  double latitude;
+  double longitude;
 
   Location({
-    this.latitude = "",
-    this.longitude = "",
+    this.latitude = 0,
+    this.longitude = 0,
   });
 
   factory Location.createLocation(Map<String, dynamic> map) {
     return Location(
-      latitude: map['latitude'] ?? "",
-      longitude: map['longitude'] ?? "",
+      latitude: map['latitude'] ?? 0,
+      longitude: map['longitude'] ?? 0,
     );
   }
 }

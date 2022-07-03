@@ -94,18 +94,33 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ],
                     ),
-                    Obx(
-                      () => RoundedButton(
-                        text: "Entrar",
-                        onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            login(
-                                emailController.text, passwordController.text);
-                          }
-                        },
-                        width: MediaQuery.of(context).size.width,
-                        isLoading: authController.isAuthLoading,
-                      ),
+                    Column(
+                      children: [
+                        Obx(
+                          () => RoundedButton(
+                            text: "Entrar",
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                login(emailController.text,
+                                    passwordController.text);
+                              }
+                            },
+                            width: MediaQuery.of(context).size.width,
+                            isLoading: authController.isAuthLoading,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        RoundedButton(
+                          variant: "outlined",
+                          text: "Cadastrar-se",
+                          onTap: () {
+                            Get.toNamed('/Register');
+                          },
+                          width: MediaQuery.of(context).size.width,
+                        )
+                      ],
                     )
                   ],
                 ),

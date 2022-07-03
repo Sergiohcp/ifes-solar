@@ -14,9 +14,8 @@ class User {
   factory User.createUser(Map<String, dynamic> map) {
     return User(
       id: map['id'] ?? 0,
-      name: map['name'] ?? "",
+      name: map['username'] ?? "",
       email: map['email'] ?? "",
-      phone: map['phone'] ?? "",
     );
   }
 }

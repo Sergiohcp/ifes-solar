@@ -16,9 +16,17 @@ class UserController {
   bool get isUserLoading => _isUserLoading.value;
   User get user => _user.value;
 
+  void setUserLoading(bool value) {
+    _isUserLoading.value = value;
+  }
+
+  void setUser(User value) {
+    _user.value = value;
+  }
+
   Future getUser() async {
     try {
-      _isUserLoading.value = true;
+      setUserLoading(true);
       var response = await this.userRepository.getUser();
       if (response.statusCode != 200) {
         userReset();
@@ -30,11 +38,11 @@ class UserController {
       }
       if (response.body != null) {
         var body = jsonDecode(response.body);
-        final User userInstance = User.createUser(body);
-        _user.value = userInstance;
+        final User user = User.createUser(body);
+        setUser(user);
       }
     } finally {
-      _isUserLoading.value = false;
+      setUserLoading(false);
     }
   }
 }

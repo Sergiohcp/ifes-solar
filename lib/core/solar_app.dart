@@ -2,12 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ifes_solar/bindings/auth_binding.dart';
-import 'package:ifes_solar/bindings/simulation_binding.dart';
+import 'package:ifes_solar/bindings/home_binding.dart';
+import 'package:ifes_solar/bindings/user_binding.dart';
 import 'package:ifes_solar/core/solar_colors.dart';
 import 'package:ifes_solar/pages/home/home_page.dart';
 import 'package:ifes_solar/pages/login/login_page.dart';
 import 'package:ifes_solar/pages/register/register_page.dart';
+import 'package:ifes_solar/pages/simulation/start_simulation_page.dart';
 import 'package:ifes_solar/pages/splash/splash_page.dart';
+import 'package:ifes_solar/pages/user/user_page.dart';
+import 'package:ifes_solar/pages/user/user_simulations_page.dart';
 
 class SolarApp extends StatelessWidget {
   @override
@@ -26,10 +30,13 @@ class SolarApp extends StatelessWidget {
             binding: AuthBinding()),
         GetPage(
             name: '/Login', page: () => LoginPage(), binding: AuthBinding()),
+        GetPage(name: '/Home', page: () => HomePage(), binding: HomeBinding()),
+        GetPage(name: '/User', page: () => UserPage(), binding: UserBinding()),
         GetPage(
-            name: '/Home',
-            page: () => HomePage(),
-            binding: SimulationBinding()),
+            name: '/UserSimulations',
+            page: () => UserSimulationsPage(),
+            binding: UserBinding()),
+        GetPage(name: '/StartSimulation', page: () => StartSimulationPage()),
       ],
       debugShowCheckedModeBanner: false,
     );

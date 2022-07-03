@@ -15,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   void verifyToken() async {
     final jwt = await Jwt.getJwtToken();
     Future.delayed(Duration(seconds: 3)).then((_) =>
-        Get.offAllNamed(jwt != null && !jwt.isEmpty ? '/User' : '/Auth'));
+        Get.offAllNamed(jwt != null && !jwt.isEmpty ? '/Home' : '/Login'));
   }
 
   @override

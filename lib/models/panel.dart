@@ -28,10 +28,10 @@ class Panel {
       image: map['image'] ?? "",
       producer: map['producer'] ?? "",
       name: map['name'] ?? "",
-      power: map['power'] ?? 0,
-      temperature: map['temperature'] ?? 0,
-      area: map['area'] ?? 0,
-      efficiency: map['efficiency'] ?? 0,
+      power: map['power'].toDouble() ?? 0,
+      temperature: map['temperature'].toDouble() ?? 0,
+      area: map['area'].toDouble() ?? 0,
+      efficiency: map['efficiency'].toDouble() ?? 0,
       datasheet: map['datasheet'] ?? "",
     );
   }

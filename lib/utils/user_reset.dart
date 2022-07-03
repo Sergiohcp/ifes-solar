@@ -3,5 +3,5 @@ import 'package:ifes_solar/models/jwt.dart';
 
 void userReset() {
   Jwt.setJwtToken("");
-  Get.offNamed('/Auth');
+  Get.offNamed('/Login');
 }

@@ -26,7 +26,7 @@ class AuthController {
       if (response.body != null) {
         var body = jsonDecode(response.body);
         Jwt.setJwtToken(body['jwt']);
-        Get.offNamed('/User');
+        Get.offNamed('/Home');
       }
     } catch (error) {
       showSnackBar(
@@ -44,7 +44,7 @@ class AuthController {
       if (response.body != null) {
         var body = jsonDecode(response.body);
         Jwt.setJwtToken(body['jwt']);
-        Get.offNamed('/User');
+        Get.offNamed('/Home');
       }
     } catch (error) {
       showSnackBar(
