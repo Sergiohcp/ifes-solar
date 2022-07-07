@@ -25,7 +25,7 @@ class RoundedButton extends StatelessWidget {
       case 'contained':
         return ElevatedButton.styleFrom(
           primary: disabled ? SolarColors.grayDark : SolarColors.primary,
-          onPrimary: disabled ? SolarColors.grayDark : SolarColors.secondary,
+          onPrimary: disabled ? SolarColors.grayDark : SolarColors.primary,
           fixedSize: Size(width, 42),
           padding: EdgeInsets.symmetric(horizontal: 16.0),
           shape: const RoundedRectangleBorder(

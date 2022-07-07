@@ -73,4 +73,16 @@ class SolarTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+
+  static final TextStyle panelListItemTitle = TextStyle(
+    color: SolarColors.grayDarker,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle panelListItemButton = TextStyle(
+    color: SolarColors.grayDark,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
 }
