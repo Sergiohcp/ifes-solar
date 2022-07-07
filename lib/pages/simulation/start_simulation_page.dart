@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ifes_solar/core/solar_colors.dart';
 import 'package:ifes_solar/core/solar_text_styles.dart';
 import 'package:ifes_solar/utils/app_bar.dart';
@@ -38,7 +39,9 @@ class StartSimulationPage extends StatelessWidget {
             ),
             RoundedButton(
               text: "Iniciar simulação",
-              onTap: () {},
+              onTap: () {
+                Get.toNamed('/PanelsList');
+              },
               width: MediaQuery.of(context).size.width,
             )
           ],

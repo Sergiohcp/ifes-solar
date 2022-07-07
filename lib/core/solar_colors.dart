@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 class SolarColors {
-  static const Color primary = Color(0xFFDE9C0D);
-  static const Color secondary = Color(0xFFC6b54C);
+  static const Color primary = Color(0xFF3fa80d);
+  static const Color secondary = Color(0xFF68c03f);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color semiBlack = Color(0xFF474545);

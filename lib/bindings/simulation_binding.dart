@@ -1,19 +1,18 @@
 import 'package:get/get.dart';
+import 'package:ifes_solar/controllers/panel_controller.dart';
 import 'package:ifes_solar/controllers/simulation_controller.dart';
 import 'package:ifes_solar/core/solar_api.dart';
+import 'package:ifes_solar/repositories/panel_repository.dart';
 import 'package:ifes_solar/repositories/simulation_repository.dart';
-import 'package:ifes_solar/repositories/user_repository.dart';
-
-import '../controllers/user_controller.dart';
 
 class SimulationBinding implements Bindings {
   @override
   void dependencies() {
-    final userRepository = UserRepository(api: solarApi);
     final simulationRepository = SimulationRepository(api: solarApi);
-    Get.lazyPut<UserController>(
-        () => UserController(userRepository: userRepository));
+    final panelRepository = PanelRepository(api: solarApi);
     Get.lazyPut<SimulationController>(
         () => SimulationController(simulationRepository: simulationRepository));
+    Get.lazyPut<PanelController>(
+        () => PanelController(panelRepository: panelRepository));
   }
 }

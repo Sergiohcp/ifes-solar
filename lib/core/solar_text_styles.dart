@@ -8,6 +8,12 @@ class SolarTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static final TextStyle homeTitle = TextStyle(
+    color: SolarColors.grayDarker,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
+
   static final TextStyle titleWhite = TextStyle(
     color: SolarColors.white,
     fontSize: 20,
@@ -22,6 +28,12 @@ class SolarTextStyles {
 
   static final TextStyle roundedButtonTextOutlined = TextStyle(
     color: SolarColors.primary,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle roundedButtonTextDisabled = TextStyle(
+    color: SolarColors.grayDark,
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
@@ -45,7 +57,7 @@ class SolarTextStyles {
   );
 
   static final TextStyle simulationQuestion = TextStyle(
-    color: SolarColors.secondary,
+    color: SolarColors.semiBlack,
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );

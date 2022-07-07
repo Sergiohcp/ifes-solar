@@ -25,7 +25,7 @@ class Panel {
   factory Panel.createPanel(Map<String, dynamic> map) {
     return Panel(
       id: map['id'] ?? 0,
-      image: map['image'] ?? "",
+      image: map['producer_image'] ?? "",
       producer: map['producer'] ?? "",
       name: map['name'] ?? "",
       power: map['power'].toDouble() ?? 0,

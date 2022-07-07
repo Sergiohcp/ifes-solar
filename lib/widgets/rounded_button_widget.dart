@@ -8,6 +8,7 @@ class RoundedButton extends StatelessWidget {
   final double width;
   final bool isLoading;
   final String variant;
+  final bool disabled;
 
   const RoundedButton(
       {Key? key,
@@ -15,15 +16,16 @@ class RoundedButton extends StatelessWidget {
       required this.onTap,
       this.width = 200,
       this.isLoading = false,
-      this.variant = 'contained'})
+      this.variant = 'contained',
+      this.disabled = false})
       : super(key: key);
 
   ButtonStyle? getStyle(String variant, double width) {
     switch (variant) {
       case 'contained':
         return ElevatedButton.styleFrom(
-          primary: SolarColors.primary,
-          onPrimary: SolarColors.secondary,
+          primary: disabled ? SolarColors.grayDark : SolarColors.primary,
+          onPrimary: disabled ? SolarColors.grayDark : SolarColors.secondary,
           fixedSize: Size(width, 42),
           padding: EdgeInsets.symmetric(horizontal: 16.0),
           shape: const RoundedRectangleBorder(
@@ -48,9 +50,13 @@ class RoundedButton extends StatelessWidget {
   TextStyle? getTextStyle(String variant) {
     switch (variant) {
       case 'contained':
-        return SolarTextStyles.roundedButtonTextContained;
+        return disabled
+            ? SolarTextStyles.roundedButtonTextDisabled
+            : SolarTextStyles.roundedButtonTextContained;
       case 'outlined':
-        return SolarTextStyles.roundedButtonTextOutlined;
+        return disabled
+            ? SolarTextStyles.roundedButtonTextDisabled
+            : SolarTextStyles.roundedButtonTextOutlined;
     }
   }
 
@@ -58,7 +64,7 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: getStyle(variant, width),
-      onPressed: onTap,
+      onPressed: disabled ? null : onTap,
       child: !isLoading
           ? Text(text, style: getTextStyle(variant))
           : Container(

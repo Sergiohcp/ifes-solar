@@ -6,6 +6,7 @@ import 'package:ifes_solar/controllers/panel_controller.dart';
 import 'package:ifes_solar/controllers/user_controller.dart';
 import 'package:ifes_solar/core/solar_colors.dart';
 import 'package:ifes_solar/core/solar_text_styles.dart';
+import 'package:ifes_solar/pages/home/widgets/home_list_item_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,21 +43,21 @@ class _HomePageState extends State<HomePage> {
         'onTap': () {
           Get.toNamed('/StartSimulation');
         },
-        'color': SolarColors.primary,
+        'isHighlight': true,
       },
       {
         'title': 'Meus dados',
         'onTap': () {
           Get.toNamed('/User');
         },
-        'color': SolarColors.semiBlack,
+        'isHighlight': false,
       },
       {
         'title': 'Minhas simulações',
         'onTap': () {
           Get.toNamed('/UserSimulations');
         },
-        'color': SolarColors.semiBlack,
+        'isHighlight': false,
       },
     ];
 
@@ -89,31 +90,29 @@ class _HomePageState extends State<HomePage> {
                 ))
               : Padding(
                   padding: const EdgeInsets.all(16),
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) => Divider(
-                      color: SolarColors.grayDarker,
-                    ),
-                    itemCount: list.length,
-                    itemBuilder: (context, index) => GestureDetector(
-                      onTap: list[index]['onTap'] as void Function()?,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text('${list[index]['title']}',
-                                style: TextStyle(
-                                    color: list[index]['color'] as Color,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600)),
-                            Icon(Icons.arrow_forward_ios_outlined,
-                                size: 20, color: list[index]['color'] as Color)
-                          ],
+                  child: Column(
+                    children: [
+                      Text(
+                        'Bem vindo ao Ifes Solar, a plataforma de simulação de geração de energia solar fotovoltáica do IFES. Aqui você consegue seimular o quanto teria de crédito energético utilizando energia solar.',
+                        style: SolarTextStyles.homeTitle,
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Expanded(
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) => SizedBox(
+                            height: 16,
+                          ),
+                          itemCount: list.length,
+                          itemBuilder: (context, index) => HomeListItem(
+                            title: list[index]['title'] as String,
+                            onTap: list[index]['onTap'] as VoidCallback,
+                            isHighlight: list[index]['isHighlight'] as bool,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 )),
     );
